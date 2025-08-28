@@ -5,7 +5,7 @@
         <field name="name">terminal.management.tree</field>
         <field name="model">terminal.management</field>
         <field name="arch" type="xml">
-            <tree string="Terminal Listesi" decoration-info="terminal_durum == 'beklemede'" decoration-success="terminal_durum == 'aktif'" decoration-danger="terminal_durum == 'ariza'">
+            <list string="Terminal Listesi" decoration-info="terminal_durum == 'beklemede'" decoration-success="terminal_durum == 'aktif'" decoration-danger="terminal_durum == 'ariza'">
                 <field name="mali_no"/>
                 <field name="banka_adi"/>
                 <field name="terminal_durum" widget="badge" decoration-info="terminal_durum == 'beklemede'" decoration-success="terminal_durum == 'aktif'" decoration-danger="terminal_durum == 'ariza'"/>
@@ -15,7 +15,7 @@
                 <field name="model"/>
                 <field name="son_haberlesme"/>
                 <field name="create_date"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -140,7 +140,7 @@
     <record id="action_terminal_management" model="ir.actions.act_window">
         <field name="name">Terminal Yönetimi</field>
         <field name="res_model">terminal.management</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="context">{'search_default_aktif': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
