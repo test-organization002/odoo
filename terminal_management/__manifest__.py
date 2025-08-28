@@ -16,7 +16,8 @@
     'author': 'Your Company',
     'website': 'https://www.yourcompany.com',
     'depends': ['base', 'mail'],
-                    'data': [
+    'web_icon': 'terminal_management/static/description/icon.svg',
+    'data': [
                     'security/ir.model.access.csv',
                     'views/terminal_views.xml',
                     'views/banka_durum_views.xml',
