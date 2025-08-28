@@ -27,14 +27,14 @@
         <field name="arch" type="xml">
             <form string="Terminal" class="o_form_view_full_width">
                 <header>
-                    <button name="action_aktif_et" string="Aktif Et" type="object" class="oe_highlight" invisible="terminal_durum.code == 'aktif'"/>
-                    <button name="action_pasif_et" string="Pasif Et" type="object" invisible="terminal_durum.code == 'pasif'"/>
-                    <button name="action_ariza_bildir" string="Arıza Bildir" type="object" invisible="terminal_durum.code == 'ariza'"/>
+                    <button name="action_aktif_et" string="Aktif Et" type="object" class="oe_highlight" invisible="terminal_durum == False"/>
+                    <button name="action_pasif_et" string="Pasif Et" type="object" invisible="terminal_durum == False"/>
+                    <button name="action_ariza_bildir" string="Arıza Bildir" type="object" invisible="terminal_durum == False"/>
                     <separator/>
-                    <button name="action_banka_gonder" string="Banka Gönder" type="object" class="oe_highlight" invisible="banka_durum.code in ('yanit_bekleniyor','tamamlandi','reddedildi','hata')"/>
-                    <button name="action_banka_yanit_al" string="Yanıt Alındı" type="object" invisible="banka_durum.code != 'yanit_bekleniyor'"/>
-                    <button name="action_banka_reddet" string="Reddedildi" type="object" invisible="banka_durum.code in ('tamamlandi','reddedildi','hata')"/>
-                    <button name="action_banka_hata" string="Hata Bildir" type="object" invisible="banka_durum.code in ('tamamlandi','reddedildi','hata')"/>
+                    <button name="action_banka_gonder" string="Banka Gönder" type="object" class="oe_highlight" invisible="banka_durum == False"/>
+                    <button name="action_banka_yanit_al" string="Yanıt Alındı" type="object" invisible="banka_durum == False"/>
+                    <button name="action_banka_reddet" string="Reddedildi" type="object" invisible="banka_durum == False"/>
+                    <button name="action_banka_hata" string="Hata Bildir" type="object" invisible="banka_durum == False"/>
                     <field name="terminal_durum" widget="statusbar" statusbar_visible="beklemede,aktif,ariza"/>
                     <div class="tm-bank-stage">
                         <span class="o_form_label">Banka Durum:</span>
