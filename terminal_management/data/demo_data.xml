@@ -1,169 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
-        <!-- Banka Durumları -->
-        <record id="demo_banka_durum_gonderilmedi" model="banka.durum">
-            <field name="name">Gönderilmedi</field>
-            <field name="code">gonderilmedi</field>
-            <field name="description">Terminal henüz bankaya gönderilmemiş</field>
-            <field name="color">1</field>
-            <field name="sequence">10</field>
-        </record>
+    <!-- Banka Durumları -->
+    <record id="demo_banka_durum_gonderilmedi" model="banka.durum">
+        <field name="name">Gönderilmedi</field>
+        <field name="code">gonderilmedi</field>
+        <field name="description">Terminal henüz bankaya gönderilmemiş</field>
+        <field name="color">1</field>
+        <field name="sequence">10</field>
+    </record>
 
-        <record id="demo_banka_durum_yanit_bekleniyor" model="banka.durum">
-            <field name="name">Yanıt Bekleniyor</field>
-            <field name="code">yanit_bekleniyor</field>
-            <field name="description">Banka gönderildi, yanıt bekleniyor</field>
-            <field name="color">2</field>
-            <field name="sequence">20</field>
-        </record>
+    <record id="demo_banka_durum_yanit_bekleniyor" model="banka.durum">
+        <field name="name">Yanıt Bekleniyor</field>
+        <field name="code">yanit_bekleniyor</field>
+        <field name="description">Banka gönderildi, yanıt bekleniyor</field>
+        <field name="color">2</field>
+        <field name="sequence">20</field>
+    </record>
 
-        <record id="demo_banka_durum_tamamlandi" model="banka.durum">
-            <field name="name">Tamamlandı</field>
-            <field name="code">tamamlandi</field>
-            <field name="description">Banka işlemi başarıyla tamamlandı</field>
-            <field name="color">3</field>
-            <field name="sequence">30</field>
-        </record>
+    <record id="demo_banka_durum_tamamlandi" model="banka.durum">
+        <field name="name">Tamamlandı</field>
+        <field name="code">tamamlandi</field>
+        <field name="description">Banka işlemi başarıyla tamamlandı</field>
+        <field name="color">3</field>
+        <field name="sequence">30</field>
+    </record>
 
-        <record id="demo_banka_durum_reddedildi" model="banka.durum">
-            <field name="name">Reddedildi</field>
-            <field name="code">reddedildi</field>
-            <field name="description">Banka işlemi reddedildi</field>
-            <field name="color">4</field>
-            <field name="sequence">40</field>
-        </record>
+    <record id="demo_banka_durum_reddedildi" model="banka.durum">
+        <field name="name">Reddedildi</field>
+        <field name="code">reddedildi</field>
+        <field name="description">Banka işlemi reddedildi</field>
+        <field name="color">4</field>
+        <field name="sequence">40</field>
+    </record>
 
-        <record id="demo_banka_durum_hata" model="banka.durum">
-            <field name="name">Hata</field>
-            <field name="code">hata</field>
-            <field name="description">Banka işleminde hata oluştu</field>
-            <field name="color">5</field>
-            <field name="sequence">50</field>
-        </record>
+    <record id="demo_banka_durum_hata" model="banka.durum">
+        <field name="name">Hata</field>
+        <field name="code">hata</field>
+        <field name="description">Banka işleminde hata oluştu</field>
+        <field name="color">5</field>
+        <field name="sequence">50</field>
+    </record>
 
-        <!-- POS Durumları -->
-        <record id="demo_pos_durum_beklemede" model="pos.durum">
-            <field name="name">Beklemede</field>
-            <field name="code">beklemede</field>
-            <field name="description">POS sistemi beklemede</field>
-            <field name="color">2</field>
-            <field name="sequence">10</field>
-        </record>
+    <!-- POS Durumları -->
+    <record id="demo_pos_durum_beklemede" model="pos.durum">
+        <field name="name">Beklemede</field>
+        <field name="code">beklemede</field>
+        <field name="description">POS sistemi beklemede</field>
+        <field name="color">2</field>
+        <field name="sequence">10</field>
+    </record>
 
-        <record id="demo_pos_durum_aktif" model="pos.durum">
-            <field name="name">Aktif</field>
-            <field name="code">aktif</field>
-            <field name="description">POS sistemi aktif</field>
-            <field name="color">3</field>
-            <field name="sequence">20</field>
-        </record>
+    <record id="demo_pos_durum_aktif" model="pos.durum">
+        <field name="name">Aktif</field>
+        <field name="code">aktif</field>
+        <field name="description">POS sistemi aktif</field>
+        <field name="color">3</field>
+        <field name="sequence">20</field>
+    </record>
 
-        <record id="demo_pos_durum_pasif" model="pos.durum">
-            <field name="name">Pasif</field>
-            <field name="code">pasif</field>
-            <field name="description">POS sistemi pasif</field>
-            <field name="color">4</field>
-            <field name="sequence">30</field>
-        </record>
+    <record id="demo_pos_durum_pasif" model="pos.durum">
+        <field name="name">Pasif</field>
+        <field name="code">pasif</field>
+        <field name="description">POS sistemi pasif</field>
+        <field name="color">4</field>
+        <field name="sequence">30</field>
+    </record>
 
-        <record id="demo_pos_durum_ariza" model="pos.durum">
-            <field name="name">Arıza</field>
-            <field name="code">ariza</field>
-            <field name="description">POS sisteminde arıza var</field>
-            <field name="color">5</field>
-            <field name="sequence">40</field>
-        </record>
+    <record id="demo_pos_durum_ariza" model="pos.durum">
+        <field name="name">Arıza</field>
+        <field name="code">ariza</field>
+        <field name="description">POS sisteminde arıza var</field>
+        <field name="color">5</field>
+        <field name="sequence">40</field>
+    </record>
 
-        <!-- Sipariş Durumları -->
-        <record id="demo_siparis_durum_beklemede" model="siparis.durum">
-            <field name="name">Beklemede</field>
-            <field name="code">beklemede</field>
-            <field name="description">Sipariş beklemede</field>
-            <field name="color">6</field>
-            <field name="sequence">10</field>
-        </record>
+    <!-- Sipariş Durumları -->
+    <record id="demo_siparis_durum_beklemede" model="siparis.durum">
+        <field name="name">Beklemede</field>
+        <field name="code">beklemede</field>
+        <field name="description">Sipariş beklemede</field>
+        <field name="color">6</field>
+        <field name="sequence">10</field>
+    </record>
 
-        <record id="demo_siparis_durum_aktif" model="siparis.durum">
-            <field name="name">Aktif</field>
-            <field name="code">aktif</field>
-            <field name="description">Sipariş aktif</field>
-            <field name="color">7</field>
-            <field name="sequence">20</field>
-        </record>
+    <record id="demo_siparis_durum_aktif" model="siparis.durum">
+        <field name="name">Aktif</field>
+        <field name="code">aktif</field>
+        <field name="description">Sipariş aktif</field>
+        <field name="color">7</field>
+        <field name="sequence">20</field>
+    </record>
 
-        <record id="demo_siparis_durum_pasif" model="siparis.durum">
-            <field name="name">Pasif</field>
-            <field name="code">pasif</field>
-            <field name="description">Sipariş pasif</field>
-            <field name="color">8</field>
-            <field name="sequence">30</field>
-        </record>
+    <record id="demo_siparis_durum_pasif" model="siparis.durum">
+        <field name="name">Pasif</field>
+        <field name="code">pasif</field>
+        <field name="description">Sipariş pasif</field>
+        <field name="color">8</field>
+        <field name="sequence">30</field>
+    </record>
 
-        <!-- Demo Terminal 1 -->
-        <record id="demo_terminal_1" model="terminal.management">
-            <field name="mali_no">TERM001</field>
-            <field name="org_id">ORG001</field>
-            <field name="banka_adi">Garanti BBVA</field>
-            <field name="banka_durum" ref="demo_banka_durum_tamamlandi"/>
-            <field name="pos_durum" ref="demo_pos_durum_aktif"/>
-            <field name="terminal_durum" ref="demo_pos_durum_aktif"/>
-            <field name="siparis_durum" ref="demo_siparis_durum_aktif"/>
-            <field name="marka">Verifone</field>
-            <field name="model">VX520</field>
-            <field name="sim_id">SIM001</field>
-            <field name="imei">123456789012345</field>
-            <field name="operator">Turkcell</field>
-            <field name="terminal_kanali">gprs</field>
-            <field name="banka_mid">MID001</field>
-            <field name="banka_tid">TID001</field>
-            <field name="pos_mid">PMID001</field>
-            <field name="pos_tid">PTID001</field>
-            <field name="aciklama">Demo terminal - aktif durumda</field>
-        </record>
+    <!-- Demo Terminal 1 -->
+    <record id="demo_terminal_1" model="terminal.management">
+        <field name="mali_no">TERM001</field>
+        <field name="org_id">ORG001</field>
+        <field name="banka_adi">Garanti BBVA</field>
+        <field name="banka_durum" ref="demo_banka_durum_tamamlandi"/>
+        <field name="pos_durum" ref="demo_pos_durum_aktif"/>
+        <field name="terminal_durum" ref="demo_pos_durum_aktif"/>
+        <field name="siparis_durum" ref="demo_siparis_durum_aktif"/>
+        <field name="marka">Verifone</field>
+        <field name="model">VX520</field>
+        <field name="sim_id">SIM001</field>
+        <field name="imei">123456789012345</field>
+        <field name="operator">Turkcell</field>
+        <field name="terminal_kanali">gprs</field>
+        <field name="banka_mid">MID001</field>
+        <field name="banka_tid">TID001</field>
+        <field name="pos_mid">PMID001</field>
+        <field name="pos_tid">PTID001</field>
+        <field name="aciklama">Demo terminal - aktif durumda</field>
+    </record>
 
-        <!-- Demo Terminal 2 -->
-        <record id="demo_terminal_2" model="terminal.management">
-            <field name="mali_no">TERM002</field>
-            <field name="org_id">ORG002</field>
-            <field name="banka_adi">İş Bankası</field>
-            <field name="banka_durum" ref="demo_banka_durum_gonderilmedi"/>
-            <field name="pos_durum" ref="demo_pos_durum_beklemede"/>
-            <field name="terminal_durum" ref="demo_pos_durum_beklemede"/>
-            <field name="siparis_durum" ref="demo_siparis_durum_beklemede"/>
-            <field name="marka">Ingenico</field>
-            <field name="model">Telium</field>
-            <field name="sim_id">SIM002</field>
-            <field name="imei">987654321098765</field>
-            <field name="operator">Vodafone</field>
-            <field name="terminal_kanali">internet</field>
-            <field name="banka_mid">MID002</field>
-            <field name="banka_tid">TID002</field>
-            <field name="pos_mid">PMID002</field>
-            <field name="pos_tid">PTID002</field>
-            <field name="aciklama">Demo terminal - beklemede</field>
-        </record>
+    <!-- Demo Terminal 2 -->
+    <record id="demo_terminal_2" model="terminal.management">
+        <field name="mali_no">TERM002</field>
+        <field name="org_id">ORG002</field>
+        <field name="banka_adi">İş Bankası</field>
+        <field name="banka_durum" ref="demo_banka_durum_gonderilmedi"/>
+        <field name="pos_durum" ref="demo_pos_durum_beklemede"/>
+        <field name="terminal_durum" ref="demo_pos_durum_beklemede"/>
+        <field name="siparis_durum" ref="demo_siparis_durum_beklemede"/>
+        <field name="marka">Ingenico</field>
+        <field name="model">Telium</field>
+        <field name="sim_id">SIM002</field>
+        <field name="imei">987654321098765</field>
+        <field name="operator">Vodafone</field>
+        <field name="terminal_kanali">internet</field>
+        <field name="banka_mid">MID002</field>
+        <field name="banka_tid">TID002</field>
+        <field name="pos_mid">PMID002</field>
+        <field name="pos_tid">PTID002</field>
+        <field name="aciklama">Demo terminal - beklemede</field>
+    </record>
 
-        <!-- Demo Terminal 3 -->
-        <record id="demo_terminal_3" model="terminal.management">
-            <field name="mali_no">TERM003</field>
-            <field name="org_id">ORG003</field>
-            <field name="banka_adi">Yapı Kredi</field>
-            <field name="banka_durum" ref="demo_banka_durum_yanit_bekleniyor"/>
-            <field name="pos_durum" ref="demo_pos_durum_ariza"/>
-            <field name="terminal_durum" ref="demo_pos_durum_ariza"/>
-            <field name="siparis_durum" ref="demo_siparis_durum_pasif"/>
-            <field name="marka">PAX</field>
-            <field name="model">S80</field>
-            <field name="sim_id">SIM003</field>
-            <field name="imei">555666777888999</field>
-            <field name="operator">Turk Telekom</field>
-            <field name="terminal_kanali">ethernet</field>
-            <field name="banka_mid">MID003</field>
-            <field name="banka_tid">TID003</field>
-            <field name="pos_mid">PMID003</field>
-            <field name="pos_tid">PTID003</field>
-            <field name="aciklama">Demo terminal - arızalı</field>
-        </record>
-    </data>
+    <!-- Demo Terminal 3 -->
+    <record id="demo_terminal_3" model="terminal.management">
+        <field name="mali_no">TERM003</field>
+        <field name="org_id">ORG003</field>
+        <field name="banka_adi">Yapı Kredi</field>
+        <field name="banka_durum" ref="demo_banka_durum_yanit_bekleniyor"/>
+        <field name="pos_durum" ref="demo_pos_durum_ariza"/>
+        <field name="terminal_durum" ref="demo_pos_durum_ariza"/>
+        <field name="siparis_durum" ref="demo_siparis_durum_pasif"/>
+        <field name="marka">PAX</field>
+        <field name="model">S80</field>
+        <field name="sim_id">SIM003</field>
+        <field name="imei">555666777888999</field>
+        <field name="operator">Turk Telekom</field>
+        <field name="terminal_kanali">ethernet</field>
+        <field name="banka_mid">MID003</field>
+        <field name="banka_tid">TID003</field>
+        <field name="pos_mid">PMID003</field>
+        <field name="pos_tid">PTID003</field>
+        <field name="aciklama">Demo terminal - arızalı</field>
+    </record>
 </odoo>
