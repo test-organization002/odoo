@@ -98,14 +98,8 @@
     width: 100%;
 }
 
-/* Badge colors based on status */
-.o_field_badge.o_field_badge--gonderilmedi { background-color: #64748b !important; color: white !important; }
-.o_field_badge.o_field_badge--yanit_bekleniyor { background-color: #f59e0b !important; color: white !important; }
-.o_field_badge.o_field_badge--tamamlandi { background-color: #16a34a !important; color: white !important; }
-.o_field_badge.o_field_badge--reddedildi { background-color: #ef4444 !important; color: white !important; }
-.o_field_badge.o_field_badge--hata { background-color: #0f172a !important; color: white !important; }
-
-.o_field_badge.o_field_badge--aktif { background-color: #16a34a !important; color: white !important; }
-.o_field_badge.o_field_badge--pasif { background-color: #64748b !important; color: white !important; }
-.o_field_badge.o_field_badge--beklemede { background-color: #f59e0b !important; color: white !important; }
-.o_field_badge.o_field_badge--ariza { background-color: #ef4444 !important; color: white !important; }
+/* Badge colors will come from database color field */
+.o_field_badge {
+    color: white !important;
+    font-weight: 600;
+}
