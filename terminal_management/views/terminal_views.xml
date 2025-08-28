@@ -28,6 +28,7 @@
             <form string="Terminal" class="o_form_view_full_width">
                 <header>
                     <field name="terminal_durum"/>
+                    <field name="banka_durum" widget="statusbar" statusbar_visible="gonderilmedi,yanit_bekleniyor,tamamlandi,reddedildi,hata"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
