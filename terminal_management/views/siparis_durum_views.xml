@@ -4,7 +4,7 @@
     <record id="view_siparis_durum_list" model="ir.ui.view">
         <field name="name">siparis.durum.list</field>
         <field name="model">siparis.durum</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <tree string="Sipariş Durumları">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
@@ -21,7 +21,7 @@
     <record id="view_siparis_durum_form" model="ir.ui.view">
         <field name="name">siparis.durum.form</field>
         <field name="model">siparis.durum</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <form string="Sipariş Durum">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
@@ -65,7 +65,7 @@
     <record id="view_siparis_durum_search" model="ir.ui.view">
         <field name="name">siparis.durum.search</field>
         <field name="model">siparis.durum</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <search string="Sipariş Durum Ara">
                 <field name="name"/>
                 <field name="code"/>

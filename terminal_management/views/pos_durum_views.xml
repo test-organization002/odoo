@@ -4,7 +4,7 @@
     <record id="view_pos_durum_list" model="ir.ui.view">
         <field name="name">pos.durum.list</field>
         <field name="model">pos.durum</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <tree string="POS Durumları">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
@@ -21,7 +21,7 @@
     <record id="view_pos_durum_form" model="ir.ui.view">
         <field name="name">pos.durum.form</field>
         <field name="model">pos.durum</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <form string="POS Durum">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
@@ -65,12 +65,12 @@
     <record id="view_pos_durum_search" model="ir.ui.view">
         <field name="name">pos.durum.search</field>
         <field name="model">pos.durum</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <search string="POS Durum Ara">
                 <field name="name"/>
                 <field name="code"/>
                 <field name="description"/>
-                <filter string="Aktif" name="active" domain="[('active', '=', False)]"/>
+                <filter string="Aktif" name="active" domain="[('active', '=', True)]"/>
                 <filter string="Pasif" name="inactive" domain="[('active', '=', False)]"/>
                 <group expand="0" string="Grupla">
                     <filter string="Durum" name="active_group" context="{'group_by': 'active'}"/>

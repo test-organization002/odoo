@@ -4,7 +4,7 @@
     <record id="view_terminal_tree" model="ir.ui.view">
         <field name="name">terminal.management.tree</field>
         <field name="model">terminal.management</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <tree string="Terminal Listesi">
                 <field name="mali_no"/>
                 <field name="banka_adi"/>
@@ -24,7 +24,7 @@
     <record id="view_terminal_form" model="ir.ui.view">
         <field name="name">terminal.management.form</field>
         <field name="model">terminal.management</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <form string="Terminal" class="o_form_view_full_width">
                 <header>
                     <field name="banka_durum"/>
@@ -98,7 +98,7 @@
     <record id="view_terminal_search" model="ir.ui.view">
         <field name="name">terminal.management.search</field>
         <field name="model">terminal.management</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <search string="Terminal Ara">
                 <field name="mali_no"/>
                 <field name="banka_adi"/>
@@ -134,7 +134,7 @@
     <record id="view_terminal_kanban" model="ir.ui.view">
         <field name="name">terminal.management.kanban</field>
         <field name="model">terminal.management</field>
-        <field name="arch" type="xml">
+        <field name="arch">
             <kanban class="o_kanban_mobile">
                 <field name="mali_no"/>
                 <field name="banka_adi"/>
