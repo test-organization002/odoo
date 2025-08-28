@@ -1,97 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Sipariş Durum List View -->
-    <record id="view_siparis_durum_list" model="ir.ui.view">
-        <field name="name">siparis.durum.list</field>
-        <field name="model">siparis.durum</field>
-        <field name="arch">
-            <tree string="Sipariş Durumları">
-                <field name="sequence" widget="handle"/>
-                <field name="name"/>
-                <field name="code"/>
-                <field name="description"/>
-                <field name="color" widget="color_picker"/>
-                <field name="terminal_count"/>
-                <field name="active"/>
-            </tree>
-        </field>
-    </record>
+    <data>
+        <!-- Sipariş Durum List View -->
+        <record id="view_siparis_durum_list" model="ir.ui.view">
+            <field name="name">siparis.durum.list</field>
+            <field name="model">siparis.durum</field>
+            <field name="arch">
+                <tree string="Sipariş Durumları">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                    <field name="color" widget="color_picker"/>
+                    <field name="terminal_count"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
 
-    <!-- Sipariş Durum Form View -->
-    <record id="view_siparis_durum_form" model="ir.ui.view">
-        <field name="name">siparis.durum.form</field>
-        <field name="model">siparis.durum</field>
-        <field name="arch">
-            <form string="Sipariş Durum">
-                <sheet>
-                    <div class="oe_button_box" name="button_box">
-                        <button name="action_view_terminals" type="object" class="oe_stat_button" icon="fa-credit-card">
-                            <field name="terminal_count" widget="statinfo" string="Terminaller"/>
-                        </button>
-                    </div>
-                    <group>
+        <!-- Sipariş Durum Form View -->
+        <record id="view_siparis_durum_form" model="ir.ui.view">
+            <field name="name">siparis.durum.form</field>
+            <field name="model">siparis.durum</field>
+            <field name="arch">
+                <form string="Sipariş Durum">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_terminals" type="object" class="oe_stat_button" icon="fa-credit-card">
+                                <field name="terminal_count" widget="statinfo" string="Terminaller"/>
+                            </button>
+                        </div>
                         <group>
-                            <field name="name"/>
-                            <field name="code"/>
-                            <field name="sequence"/>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="color" widget="color_picker"/>
+                                <field name="active"/>
+                            </group>
                         </group>
                         <group>
-                            <field name="color" widget="color_picker"/>
-                            <field name="active"/>
+                            <field name="description" placeholder="Durum açıklaması..."/>
                         </group>
-                    </group>
-                    <group>
-                        <field name="description" placeholder="Durum açıklaması..."/>
-                    </group>
-                    <notebook>
-                        <page string="Terminaller" name="terminals">
-                            <field name="terminal_ids" readonly="1">
-                                <tree>
-                                    <field name="mali_no"/>
-                                    <field name="banka_adi"/>
-                                    <field name="terminal_durum"/>
-                                    <field name="pos_durum"/>
-                                    <field name="create_date"/>
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                        <notebook>
+                            <page string="Terminaller" name="terminals">
+                                <field name="terminal_ids" readonly="1">
+                                    <tree>
+                                        <field name="mali_no"/>
+                                        <field name="banka_adi"/>
+                                        <field name="terminal_durum"/>
+                                        <field name="pos_durum"/>
+                                        <field name="create_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <!-- Sipariş Durum Search View -->
-    <record id="view_siparis_durum_search" model="ir.ui.view">
-        <field name="name">siparis.durum.search</field>
-        <field name="model">siparis.durum</field>
-        <field name="arch">
-            <search string="Sipariş Durum Ara">
-                <field name="name"/>
-                <field name="code"/>
-                <field name="description"/>
-                <filter string="Aktif" name="active" domain="[('active', '=', True)]"/>
-                <filter string="Pasif" name="inactive" domain="[('active', '=', False)]"/>
-                <group expand="0" string="Grupla">
-                    <filter string="Durum" name="active_group" context="{'group_by': 'active'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
+        <!-- Sipariş Durum Search View -->
+        <record id="view_siparis_durum_search" model="ir.ui.view">
+            <field name="name">siparis.durum.search</field>
+            <field name="model">siparis.durum</field>
+            <field name="arch">
+                <search string="Sipariş Durum Ara">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                    <filter string="Aktif" name="active" domain="[('active', '=', True)]"/>
+                    <filter string="Pasif" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Grupla">
+                        <filter string="Durum" name="active_group" context="{'group_by': 'active'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
-    <!-- Sipariş Durum Action -->
-    <record id="action_siparis_durum" model="ir.actions.act_window">
-        <field name="name">Sipariş Durumları</field>
-        <field name="res_model">siparis.durum</field>
-        <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_active': 1}</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                İlk sipariş durumunu oluşturun!
-            </p>
-            <p>
-                Sipariş durumları, terminal kayıtlarında kullanılan sipariş durum bilgilerini tanımlar.
-            </p>
-        </field>
-    </record>
+        <!-- Sipariş Durum Action -->
+        <record id="action_siparis_durum" model="ir.actions.act_window">
+            <field name="name">Sipariş Durumları</field>
+            <field name="res_model">siparis.durum</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_active': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    İlk sipariş durumunu oluşturun!
+                </p>
+                <p>
+                    Sipariş durumları, terminal kayıtlarında kullanılan sipariş durum bilgilerini tanımlar.
+                </p>
+            </field>
+        </record>
+    </data>
 </odoo>

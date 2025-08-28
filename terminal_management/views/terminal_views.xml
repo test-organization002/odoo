@@ -1,191 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Terminal Tree View -->
-    <record id="view_terminal_tree" model="ir.ui.view">
-        <field name="name">terminal.management.tree</field>
-        <field name="model">terminal.management</field>
-        <field name="arch">
-            <tree string="Terminal Listesi">
-                <field name="mali_no"/>
-                <field name="banka_adi"/>
-                <field name="terminal_durum"/>
-                <field name="pos_durum"/>
-                <field name="banka_durum"/>
-                <field name="siparis_durum"/>
-                <field name="marka"/>
-                <field name="model"/>
-                <field name="son_haberlesme"/>
-                <field name="create_date"/>
-            </tree>
-        </field>
-    </record>
-
-    <!-- Terminal Form View -->
-    <record id="view_terminal_form" model="ir.ui.view">
-        <field name="name">terminal.management.form</field>
-        <field name="model">terminal.management</field>
-        <field name="arch">
-            <form string="Terminal" class="o_form_view_full_width">
-                <header>
+    <data>
+        <!-- Terminal Tree View -->
+        <record id="view_terminal_tree" model="ir.ui.view">
+            <field name="name">terminal.management.tree</field>
+            <field name="model">terminal.management</field>
+            <field name="arch">
+                <tree string="Terminal Listesi">
+                    <field name="mali_no"/>
+                    <field name="banka_adi"/>
+                    <field name="terminal_durum"/>
+                    <field name="pos_durum"/>
                     <field name="banka_durum"/>
-                </header>
-                <sheet>
-                    <div class="oe_title">
-                        <h1>
-                            <field name="mali_no" placeholder="Mali No"/>
-                        </h1>
-                    </div>
-                    <group>
-                        <group string="Temel Bilgiler">
-                            <field name="org_id"/>
-                            <field name="banka_adi"/>
-                            <field name="marka"/>
-                            <field name="model"/>
-                            <field name="terminal_type"/>
-                        </group>
-                        <group string="Durum Bilgileri">
-                            <field name="terminal_durum"/>
-                            <field name="pos_durum"/>
-                            <field name="banka_durum"/>
-                            <field name="siparis_durum"/>
-                            <field name="terminal_kanali"/>
-                        </group>
-                    </group>
-                    <group>
-                        <group string="Teknik Bilgiler">
-                            <field name="sim_id"/>
-                            <field name="imei"/>
-                            <field name="operator"/>
-                            <field name="son_haberlesme"/>
-                        </group>
-                        <group string="Banka Bilgileri">
-                            <field name="banka_mid"/>
-                            <field name="banka_tid"/>
-                            <field name="pos_mid"/>
-                            <field name="pos_tid"/>
-                        </group>
-                    </group>
-                    <group>
-                        <group string="Tarih Bilgileri">
-                            <field name="satis_aktivasyon_tarihi"/>
-                            <field name="banka_gonderim_tarihi"/>
-                            <field name="banka_yanit_tarihi"/>
-                        </group>
-                        <group string="İptal Tarihleri">
-                            <field name="satis_iptal_tarihi"/>
-                            <field name="iptal_gonderim_tarihi"/>
-                            <field name="iptal_yanit_tarihi"/>
-                        </group>
-                    </group>
-                    <group>
-                        <group string="Diğer Bilgiler">
-                            <field name="request_type"/>
-                            <field name="aciklama"/>
-                        </group>
-                        <group string="Sistem Bilgileri">
-                            <field name="create_date"/>
-                            <field name="write_date"/>
-                            <field name="create_uid"/>
-                            <field name="write_uid"/>
-                        </group>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                    <field name="siparis_durum"/>
+                    <field name="marka"/>
+                    <field name="model"/>
+                    <field name="son_haberlesme"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
 
-    <!-- Terminal Search View -->
-    <record id="view_terminal_search" model="ir.ui.view">
-        <field name="name">terminal.management.search</field>
-        <field name="model">terminal.management</field>
-        <field name="arch">
-            <search string="Terminal Ara">
-                <field name="mali_no"/>
-                <field name="banka_adi"/>
-                <field name="org_id"/>
-                <field name="marka"/>
-                <field name="model"/>
-                <field name="imei"/>
-                <separator/>
-                <filter string="Aktif Terminaller" name="aktif" domain="[('terminal_durum.code', '=', 'aktif')]"/>
-                <filter string="Pasif Terminaller" name="pasif" domain="[('terminal_durum.code', '=', 'pasif')]"/>
-                <filter string="Arızalı Terminaller" name="ariza" domain="[('terminal_durum.code', '=', 'ariza')]"/>
-                <filter string="Bekleyen Terminaller" name="beklemede" domain="[('terminal_durum.code', '=', 'beklemede')]"/>
-                <separator/>
-                <filter string="Gönderilmemiş" name="gonderilmedi" domain="[('banka_durum.code', '=', 'gonderilmedi')]"/>
-                <filter string="Yanıt Bekleniyor" name="yanit_bekleniyor" domain="[('banka_durum.code', '=', 'yanit_bekleniyor')]"/>
-                <filter string="Tamamlandı" name="tamamlandi" domain="[('banka_durum.code', '=', 'tamamlandi')]"/>
-                <filter string="Reddedildi" name="reddedildi" domain="[('banka_durum.code', '=', 'reddedildi')]"/>
-                <filter string="Hata" name="hata" domain="[('banka_durum.code', '=', 'hata')]"/>
-                <separator/>
-                <filter string="Bugün Oluşturulan" name="bugun" domain="[('create_date', '>=', datetime.datetime.combine(context_today(), datetime.time(0,0,0)))]"/>
-                <group expand="0" string="Grupla">
-                    <filter string="Terminal Durumu" name="group_terminal_durum" context="{'group_by': 'terminal_durum'}"/>
-                    <filter string="Banka Durumu" name="group_banka_durum" context="{'group_by': 'banka_durum'}"/>
-                    <filter string="POS Durumu" name="group_pos_durum" context="{'group_by': 'pos_durum'}"/>
-                    <filter string="Marka" name="group_marka" context="{'group_by': 'marka'}"/>
-                    <filter string="Banka Adı" name="group_banka_adi" context="{'group_by': 'banka_adi'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
+        <!-- Terminal Form View -->
+        <record id="view_terminal_form" model="ir.ui.view">
+            <field name="name">terminal.management.form</field>
+            <field name="model">terminal.management</field>
+            <field name="arch">
+                <form string="Terminal" class="o_form_view_full_width">
+                    <header>
+                        <field name="banka_durum"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="mali_no" placeholder="Mali No"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Temel Bilgiler">
+                                <field name="org_id"/>
+                                <field name="banka_adi"/>
+                                <field name="marka"/>
+                                <field name="model"/>
+                                <field name="terminal_type"/>
+                            </group>
+                            <group string="Durum Bilgileri">
+                                <field name="terminal_durum"/>
+                                <field name="pos_durum"/>
+                                <field name="banka_durum"/>
+                                <field name="siparis_durum"/>
+                                <field name="terminal_kanali"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Teknik Bilgiler">
+                                <field name="sim_id"/>
+                                <field name="imei"/>
+                                <field name="operator"/>
+                                <field name="son_haberlesme"/>
+                            </group>
+                            <group string="Banka Bilgileri">
+                                <field name="banka_mid"/>
+                                <field name="banka_tid"/>
+                                <field name="pos_mid"/>
+                                <field name="pos_tid"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Tarih Bilgileri">
+                                <field name="satis_aktivasyon_tarihi"/>
+                                <field name="banka_gonderim_tarihi"/>
+                                <field name="banka_yanit_tarihi"/>
+                            </group>
+                            <group string="İptal Tarihleri">
+                                <field name="satis_iptal_tarihi"/>
+                                <field name="iptal_gonderim_tarihi"/>
+                                <field name="iptal_yanit_tarihi"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Diğer Bilgiler">
+                                <field name="request_type"/>
+                                <field name="aciklama"/>
+                            </group>
+                            <group string="Sistem Bilgileri">
+                                <field name="create_date"/>
+                                <field name="write_date"/>
+                                <field name="create_uid"/>
+                                <field name="write_uid"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <!-- Terminal Kanban View -->
-    <record id="view_terminal_kanban" model="ir.ui.view">
-        <field name="name">terminal.management.kanban</field>
-        <field name="model">terminal.management</field>
-        <field name="arch">
-            <kanban class="o_kanban_mobile">
-                <field name="mali_no"/>
-                <field name="banka_adi"/>
-                <field name="banka_durum"/>
-                <field name="pos_durum"/>
-                <field name="terminal_durum"/>
-                <field name="siparis_durum"/>
-                <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_card oe_kanban_global_click">
-                            <div class="oe_kanban_content">
-                                <div class="o_kanban_record_top">
-                                    <div class="o_kanban_record_headings">
-                                        <strong class="o_kanban_record_title">
-                                            <field name="mali_no"/>
-                                        </strong>
-                                        <small class="o_kanban_record_subtitle">
-                                            <field name="banka_adi"/>
-                                        </small>
+        <!-- Terminal Search View -->
+        <record id="view_terminal_search" model="ir.ui.view">
+            <field name="name">terminal.management.search</field>
+            <field name="model">terminal.management</field>
+            <field name="arch">
+                <search string="Terminal Ara">
+                    <field name="mali_no"/>
+                    <field name="banka_adi"/>
+                    <field name="org_id"/>
+                    <field name="marka"/>
+                    <field name="model"/>
+                    <field name="imei"/>
+                    <separator/>
+                    <filter string="Aktif Terminaller" name="aktif" domain="[('terminal_durum.code', '=', 'aktif')]"/>
+                    <filter string="Pasif Terminaller" name="pasif" domain="[('terminal_durum.code', '=', 'pasif')]"/>
+                    <filter string="Arızalı Terminaller" name="ariza" domain="[('terminal_durum.code', '=', 'ariza')]"/>
+                    <filter string="Bekleyen Terminaller" name="beklemede" domain="[('terminal_durum.code', '=', 'beklemede')]"/>
+                    <separator/>
+                    <filter string="Gönderilmemiş" name="gonderilmedi" domain="[('banka_durum.code', '=', 'gonderilmedi')]"/>
+                    <filter string="Yanıt Bekleniyor" name="yanit_bekleniyor" domain="[('banka_durum.code', '=', 'yanit_bekleniyor')]"/>
+                    <filter string="Tamamlandı" name="tamamlandi" domain="[('banka_durum.code', '=', 'tamamlandi')]"/>
+                    <filter string="Reddedildi" name="reddedildi" domain="[('banka_durum.code', '=', 'reddedildi')]"/>
+                    <filter string="Hata" name="hata" domain="[('banka_durum.code', '=', 'hata')]"/>
+                    <separator/>
+                    <filter string="Bugün Oluşturulan" name="bugun" domain="[('create_date', '>=', datetime.datetime.combine(context_today(), datetime.time(0,0,0)))]"/>
+                    <group expand="0" string="Grupla">
+                        <filter string="Terminal Durumu" name="group_terminal_durum" context="{'group_by': 'terminal_durum'}"/>
+                        <filter string="Banka Durumu" name="group_banka_durum" context="{'group_by': 'banka_durum'}"/>
+                        <filter string="POS Durumu" name="group_pos_durum" context="{'group_by': 'pos_durum'}"/>
+                        <filter string="Marka" name="group_marka" context="{'group_by': 'marka'}"/>
+                        <filter string="Banka Adı" name="group_banka_adi" context="{'group_by': 'banka_adi'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Terminal Kanban View -->
+        <record id="view_terminal_kanban" model="ir.ui.view">
+            <field name="name">terminal.management.kanban</field>
+            <field name="model">terminal.management</field>
+            <field name="arch">
+                <kanban class="o_kanban_mobile">
+                    <field name="mali_no"/>
+                    <field name="banka_adi"/>
+                    <field name="banka_durum"/>
+                    <field name="pos_durum"/>
+                    <field name="terminal_durum"/>
+                    <field name="siparis_durum"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="mali_no"/>
+                                            </strong>
+                                            <small class="o_kanban_record_subtitle">
+                                                <field name="banka_adi"/>
+                                            </small>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="o_kanban_record_bottom">
-                                    <div class="oe_kanban_bottom_left">
-                                        <field name="terminal_durum" widget="badge"/>
-                                    </div>
-                                    <div class="oe_kanban_bottom_right">
-                                        <field name="banka_durum" widget="badge"/>
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <field name="terminal_durum" widget="badge"/>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field name="banka_durum" widget="badge"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 
-    <!-- Terminal Action -->
-    <record id="action_terminal_management" model="ir.actions.act_window">
-        <field name="name">Terminal Yönetimi</field>
-        <field name="res_model">terminal.management</field>
-        <field name="view_mode">kanban,tree,form,graph,pivot</field>
-        <field name="context">{'search_default_aktif': 1}</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                İlk terminali oluşturun!
-            </p>
-            <p>
-                Terminal yönetim sisteminde yeni terminal kaydı ekleyebilir,
-                mevcut kayıtları düzenleyebilir ve takip edebilirsiniz.
-            </p>
-        </field>
-    </record>
+        <!-- Terminal Action -->
+        <record id="action_terminal_management" model="ir.actions.act_window">
+            <field name="name">Terminal Yönetimi</field>
+            <field name="res_model">terminal.management</field>
+            <field name="view_mode">kanban,tree,form,graph,pivot</field>
+            <field name="context">{'search_default_aktif': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    İlk terminali oluşturun!
+                </p>
+                <p>
+                    Terminal yönetim sisteminde yeni terminal kaydı ekleyebilir,
+                    mevcut kayıtları düzenleyebilir ve takip edebilirsiniz.
+                </p>
+            </field>
+        </record>
+    </data>
 </odoo>
