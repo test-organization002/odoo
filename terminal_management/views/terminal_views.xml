@@ -135,7 +135,7 @@
         <field name="name">terminal.management.kanban</field>
         <field name="model">terminal.management</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile" default_group_by="banka_durum">
+            <kanban class="o_kanban_mobile">
                 <field name="mali_no"/>
                 <field name="banka_adi"/>
                 <field name="banka_durum"/>
