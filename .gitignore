@@ -1,0 +1,36 @@
+# Odoo core dosyaları (bunları ignore et)
+odoo/
+odoo_env/
+*.log
+*.pid
+
+# Docker dosyaları (test için)
+docker-compose.yml
+docker-compose.override.yml
+
+# Test dosyaları
+test_module.py
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+
+# IDE dosyaları
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Geçici dosyalar
+*.tmp
+*.temp
