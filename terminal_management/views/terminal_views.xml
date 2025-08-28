@@ -27,28 +27,7 @@
         <field name="arch" type="xml">
             <form string="Terminal" class="o_form_view_full_width">
                 <header>
-                    <button name="action_aktif_et" string="Aktif Et" type="object" class="oe_highlight"/>
-                    <button name="action_pasif_et" string="Pasif Et" type="object"/>
-                    <button name="action_ariza_bildir" string="Arıza Bildir" type="object"/>
-                    <separator/>
-                    <button name="action_banka_gonder" string="Banka Gönder" type="object" class="oe_highlight"/>
-                    <button name="action_banka_yanit_al" string="Yanıt Alındı" type="object"/>
-                    <button name="action_banka_reddet" string="Reddedildi" type="object"/>
-                    <button name="action_banka_hata" string="Hata Bildir" type="object"/>
                     <field name="terminal_durum"/>
-                    <div class="tm-bank-stage">
-                        <span class="o_form_label">Banka Durum:</span>
-                        <field name="banka_durum"/>
-                    </div>
-                    <div class="tm-pos-stage">
-                        <span class="o_form_label">POS Durum:</span>
-                        <field name="pos_durum"/>
-                    </div>
-                    <div class="tm-siparis-stage">
-                        <span class="o_form_label">Sipariş Durum:</span>
-                        <field name="siparis_durum"/>
-                    </div>
-
                 </header>
                 <sheet>
                     <div class="oe_title">
