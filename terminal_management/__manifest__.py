@@ -24,7 +24,7 @@
         'views/pos_durum_views.xml',
         'views/siparis_durum_views.xml',
         'views/menu_views.xml',
-        'data/demo_data.xml',
+        # 'data/demo_data.xml',  # Temporarily disabled for Odoo 18 compatibility
     ],
     'assets': {
         'web.assets_backend': [
