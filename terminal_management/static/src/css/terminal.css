@@ -1,3 +1,69 @@
+/* Custom Status Bar */
+.tm-custom-statusbar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #e9ecef;
+}
+
+.tm-status-step {
+    flex: 1;
+    text-align: center;
+    padding: 8px 4px;
+    border-radius: 6px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tm-status-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 2px;
+    background: #dee2e6;
+    z-index: 1;
+}
+
+.tm-status-step--gonderilmedi {
+    background: #64748b;
+    color: white;
+}
+
+.tm-status-step--yanit_bekleniyor {
+    background: #f59e0b;
+    color: white;
+}
+
+.tm-status-step--tamamlandi {
+    background: #16a34a;
+    color: white;
+}
+
+.tm-status-step--reddedildi {
+    background: #ef4444;
+    color: white;
+}
+
+.tm-status-step--hata {
+    background: #0f172a;
+    color: white;
+}
+
+.tm-step-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 /* Full-width form layout */
 .o_form_view.o_xxl .o_form_sheet_bg, .o_form_view.o_xl .o_form_sheet_bg, .o_form_view .o_form_sheet_bg {
   max-width: none !important;

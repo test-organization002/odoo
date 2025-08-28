@@ -27,7 +27,24 @@
         <field name="arch" type="xml">
             <form string="Terminal" class="o_form_view_full_width">
                 <header>
-                    <field name="banka_durum"/>
+                    <div class="tm-custom-statusbar">
+                        <div class="tm-status-step" t-attf-class="tm-status-step--#{banka_durum.code or 'gonderilmedi'}">
+                            <span class="tm-step-label">Gönderilmedi</span>
+                        </div>
+                        <div class="tm-status-step" t-attf-class="tm-status-step--#{banka_durum.code or 'gonderilmedi'}">
+                            <span class="tm-step-label">Yanıt Bekleniyor</span>
+                        </div>
+                        <div class="tm-status-step" t-attf-class="tm-status-step--#{banka_durum.code or 'gonderilmedi'}">
+                            <span class="tm-step-label">Tamamlandı</span>
+                        </div>
+                        <div class="tm-status-step" t-attf-class="tm-status-step--#{banka_durum.code or 'gonderilmedi'}">
+                            <span class="tm-step-label">Reddedildi</span>
+                        </div>
+                        <div class="tm-status-step" t-attf-class="tm-status-step--#{banka_durum.code or 'gonderilmedi'}">
+                            <span class="tm-step-label">Hata</span>
+                        </div>
+                    </div>
+                    <field name="banka_durum" invisible="1"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
