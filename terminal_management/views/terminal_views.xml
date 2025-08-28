@@ -128,16 +128,16 @@
                 <field name="model"/>
                 <field name="imei"/>
                 <separator/>
-                <filter string="Aktif Terminaller" name="aktif" domain="[('terminal_durum', '=', 'aktif')]"/>
-                <filter string="Pasif Terminaller" name="pasif" domain="[('terminal_durum', '=', 'pasif')]"/>
-                <filter string="Arızalı Terminaller" name="ariza" domain="[('terminal_durum', '=', 'ariza')]"/>
-                <filter string="Bekleyen Terminaller" name="beklemede" domain="[('terminal_durum', '=', 'beklemede')]"/>
+                <filter string="Aktif Terminaller" name="aktif" domain="[('terminal_durum.code', '=', 'aktif')]"/>
+                <filter string="Pasif Terminaller" name="pasif" domain="[('terminal_durum.code', '=', 'pasif')]"/>
+                <filter string="Arızalı Terminaller" name="ariza" domain="[('terminal_durum.code', '=', 'ariza')]"/>
+                <filter string="Bekleyen Terminaller" name="beklemede" domain="[('terminal_durum.code', '=', 'beklemede')]"/>
                 <separator/>
-                <filter string="Gönderilmemiş" name="gonderilmedi" domain="[('banka_durum', '=', 'gonderilmedi')]"/>
-                <filter string="Yanıt Bekleniyor" name="yanit_bekleniyor" domain="[('banka_durum', '=', 'yanit_bekleniyor')]"/>
-                <filter string="Tamamlandı" name="tamamlandi" domain="[('banka_durum', '=', 'tamamlandi')]"/>
-                <filter string="Reddedildi" name="reddedildi" domain="[('banka_durum', '=', 'reddedildi')]"/>
-                <filter string="Hata" name="hata" domain="[('banka_durum', '=', 'hata')]"/>
+                <filter string="Gönderilmemiş" name="gonderilmedi" domain="[('banka_durum.code', '=', 'gonderilmedi')]"/>
+                <filter string="Yanıt Bekleniyor" name="yanit_bekleniyor" domain="[('banka_durum.code', '=', 'yanit_bekleniyor')]"/>
+                <filter string="Tamamlandı" name="tamamlandi" domain="[('banka_durum.code', '=', 'tamamlandi')]"/>
+                <filter string="Reddedildi" name="reddedildi" domain="[('banka_durum.code', '=', 'reddedildi')]"/>
+                <filter string="Hata" name="hata" domain="[('banka_durum.code', '=', 'hata')]"/>
                 <separator/>
                 <filter string="Bugün Oluşturulan" name="bugun" domain="[('create_date', '>=', datetime.datetime.combine(context_today(), datetime.time(0,0,0)))]"/>
                 <group expand="0" string="Grupla">
