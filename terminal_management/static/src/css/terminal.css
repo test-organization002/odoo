@@ -85,18 +85,7 @@
     font-weight: 500;
 }
 
-/* Status bar styling */
-.tm-status-bar {
-    margin-top: 10px;
-    padding: 10px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
-}
 
-.tm-status-bar .o_field_widget {
-    width: 100%;
-}
 
 /* Badge colors will come from database color field */
 .o_field_badge {
