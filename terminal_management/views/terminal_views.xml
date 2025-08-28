@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="view_terminal_tree" model="ir.ui.view">
+        <field name="name">terminal.management.tree</field>
+        <field name="model">terminal.management</field>
+        <field name="arch">
+            <tree>
+                <field name="mali_no"/>
+                <field name="banka_adi"/>
+                <field name="terminal_durum"/>
+                <field name="banka_durum"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_terminal_form" model="ir.ui.view">
+        <field name="name">terminal.management.form</field>
+        <field name="model">terminal.management</field>
+        <field name="arch">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="mali_no"/>
+                        <field name="banka_adi"/>
+                        <field name="terminal_durum"/>
+                        <field name="banka_durum"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="action_terminal_management" model="ir.actions.act_window">
         <field name="name">Terminal Yönetimi</field>
         <field name="res_model">terminal.management</field>
