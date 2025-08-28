@@ -1,6 +1,6 @@
 {
     'name': 'Terminal Yönetim Sistemi',
-    'version': '16.0.1.0.0',
+    'version': '16.0.1',
     'category': 'Sales',
     'summary': 'Terminal kayıtlarını yönetmek için modül',
     'description': """
