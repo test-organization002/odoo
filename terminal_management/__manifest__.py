@@ -16,12 +16,15 @@
     'author': 'Your Company',
     'website': 'https://www.yourcompany.com',
     'depends': ['base', 'mail'],
-    'data': [
-        'security/ir.model.access.csv',
-        'views/terminal_views.xml',
-        'views/menu_views.xml',
-        'data/demo_data.xml',
-    ],
+                    'data': [
+                    'security/ir.model.access.csv',
+                    'views/terminal_views.xml',
+                    'views/banka_durum_views.xml',
+                    'views/pos_durum_views.xml',
+                    'views/siparis_durum_views.xml',
+                    'views/menu_views.xml',
+                    'data/demo_data.xml',
+                ],
     'assets': {
         'web.assets_backend': [
             'terminal_management/static/src/css/terminal.css',

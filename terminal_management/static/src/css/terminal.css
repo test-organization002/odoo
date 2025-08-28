@@ -30,3 +30,39 @@
 .tm-chip--tamamlandi { background: #16a34a; }
 .tm-chip--reddedildi { background: #ef4444; }
 .tm-chip--hata { background: #0f172a; }
+
+/* Status stage containers */
+.tm-bank-stage,
+.tm-pos-stage,
+.tm-siparis-stage {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.tm-bank-stage .o_form_label,
+.tm-pos-stage .o_form_label,
+.tm-siparis-stage .o_form_label {
+    font-weight: 600;
+    color: #374151;
+    min-width: 80px;
+}
+
+/* Status field styling */
+.tm-bank-stage .o_field_widget,
+.tm-pos-stage .o_field_widget,
+.tm-siparis-stage .o_field_widget {
+    min-width: 120px;
+}
+
+/* Responsive layout for status stages */
+@media (max-width: 1200px) {
+    .tm-bank-stage,
+    .tm-pos-stage,
+    .tm-siparis-stage {
+        margin-left: 0;
+        margin-top: 8px;
+        justify-content: flex-end;
+    }
+}

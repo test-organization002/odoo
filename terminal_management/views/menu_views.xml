@@ -19,6 +19,33 @@
               action="action_terminal_management"
               sequence="10"/>
 
+    <!-- Durum Yönetimi Alt Menüsü -->
+    <menuitem id="menu_durum_management"
+              name="Durum Yönetimi"
+              parent="menu_terminal_root"
+              sequence="15"/>
+
+    <!-- Banka Durumları Menüsü -->
+    <menuitem id="menu_banka_durum"
+              name="Banka Durumları"
+              parent="menu_durum_management"
+              action="action_banka_durum"
+              sequence="10"/>
+
+    <!-- POS Durumları Menüsü -->
+    <menuitem id="menu_pos_durum"
+              name="POS Durumları"
+              parent="menu_durum_management"
+              action="action_pos_durum"
+              sequence="20"/>
+
+    <!-- Sipariş Durumları Menüsü -->
+    <menuitem id="menu_siparis_durum"
+              name="Sipariş Durumları"
+              parent="menu_durum_management"
+              action="action_siparis_durum"
+              sequence="30"/>
+
     <!-- Raporlar Menüsü -->
     <menuitem id="menu_terminal_reports"
               name="Raporlar"

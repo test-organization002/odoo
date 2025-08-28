@@ -1,3 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_terminal_management_user,terminal.management.user,model_terminal_management,base.group_user,1,1,1,0
 access_terminal_management_manager,terminal.management.manager,model_terminal_management,base.group_system,1,1,1,1
+access_banka_durum_user,banka.durum.user,model_banka_durum,base.group_user,1,1,1,0
+access_banka_durum_manager,banka.durum.manager,model_banka_durum,base.group_system,1,1,1,1
+access_pos_durum_user,pos.durum.user,model_pos_durum,base.group_user,1,1,1,0
+access_pos_durum_manager,pos.durum.manager,model_pos_durum,base.group_system,1,1,1,1
+access_siparis_durum_user,siparis.durum.user,model_siparis_durum,base.group_user,1,1,1,0
+access_siparis_durum_manager,siparis.durum.manager,model_siparis_durum,base.group_system,1,1,1,1

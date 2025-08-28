@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- POS Durum List View -->
+    <record id="view_pos_durum_list" model="ir.ui.view">
+        <field name="name">pos.durum.list</field>
+        <field name="model">pos.durum</field>
+        <field name="arch" type="xml">
+            <list string="POS Durumları">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="description"/>
+                <field name="color" widget="color_picker"/>
+                <field name="terminal_count"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- POS Durum Form View -->
+    <record id="view_pos_durum_form" model="ir.ui.view">
+        <field name="name">pos.durum.form</field>
+        <field name="model">pos.durum</field>
+        <field name="arch" type="xml">
+            <form string="POS Durum">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_terminals" type="object" class="oe_stat_button" icon="fa-credit-card">
+                            <field name="terminal_count" widget="statinfo" string="Terminaller"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="color" widget="color_picker"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description" placeholder="Durum açıklaması..."/>
+                    </group>
+                    <notebook>
+                        <page string="Terminaller" name="terminals">
+                            <field name="terminal_ids" readonly="1">
+                                <list>
+                                    <field name="mali_no"/>
+                                    <field name="banka_adi"/>
+                                    <field name="terminal_durum"/>
+                                    <field name="banka_durum"/>
+                                    <field name="create_date"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- POS Durum Search View -->
+    <record id="view_pos_durum_search" model="ir.ui.view">
+        <field name="name">pos.durum.search</field>
+        <field name="model">pos.durum</field>
+        <field name="arch" type="xml">
+            <search string="POS Durum Ara">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="description"/>
+                <filter string="Aktif" name="active" domain="[('active', '=', False)]"/>
+                <filter string="Pasif" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Grupla">
+                    <filter string="Durum" name="active_group" context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- POS Durum Action -->
+    <record id="action_pos_durum" model="ir.actions.act_window">
+        <field name="name">POS Durumları</field>
+        <field name="res_model">pos.durum</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                İlk POS durumunu oluşturun!
+            </p>
+            <p>
+                POS durumları, terminal kayıtlarında kullanılan POS durum bilgilerini tanımlar.
+            </p>
+        </field>
+    </record>
+</odoo>

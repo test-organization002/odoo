@@ -14,28 +14,11 @@ class Terminal(models.Model):
     org_id = fields.Char(string='Organizasyon ID')
     banka_adi = fields.Char(string='Banka Adı')
     
-    # Durum alanları
-    banka_durum = fields.Selection([
-        ('gonderilmedi', 'Gönderilmedi'),
-        ('yanit_bekleniyor', 'Yanıt Bekleniyor'),
-        ('tamamlandi', 'Tamamlandı'),
-        ('reddedildi', 'Reddedildi'),
-        ('hata', 'Hata')
-    ], string='Banka Durumu', default='gonderilmedi')
-    
-    pos_durum = fields.Selection([
-        ('aktif', 'Aktif'),
-        ('pasif', 'Pasif'),
-        ('ariza', 'Arıza'),
-        ('beklemede', 'Beklemede')
-    ], string='POS Durumu', default='beklemede')
-    
-    terminal_durum = fields.Selection([
-        ('aktif', 'Aktif'),
-        ('pasif', 'Pasif'),
-        ('ariza', 'Arıza'),
-        ('beklemede', 'Beklemede')
-    ], string='Terminal Durumu', default='beklemede')
+    # Durum alanları - Many2one ilişkiler
+    banka_durum = fields.Many2one('banka.durum', string='Banka Durumu', required=True, ondelete='restrict')
+    pos_durum = fields.Many2one('pos.durum', string='POS Durumu', required=True, ondelete='restrict')
+    terminal_durum = fields.Many2one('pos.durum', string='Terminal Durumu', required=True, ondelete='restrict')
+    siparis_durum = fields.Many2one('siparis.durum', string='Sipariş Durumu', required=True, ondelete='restrict')
     
     # Tarih alanları
     satis_aktivasyon_tarihi = fields.Datetime(string='Satış Aktivasyon Tarihi')
@@ -103,55 +86,78 @@ class Terminal(models.Model):
 
     def action_aktif_et(self):
         """Terminali aktif et"""
-        self.write({
-            'terminal_durum': 'aktif',
-            'pos_durum': 'aktif',
-            'banka_durum': 'tamamlandi'
-        })
+        # Aktif durumları bul
+        aktif_durum = self.env['pos.durum'].search([('code', '=', 'aktif')], limit=1)
+        tamamlandi_durum = self.env['banka.durum'].search([('code', '=', 'tamamlandi')], limit=1)
+        
+        if aktif_durum and tamamlandi_durum:
+            self.write({
+                'terminal_durum': aktif_durum.id,
+                'pos_durum': aktif_durum.id,
+                'banka_durum': tamamlandi_durum.id
+            })
 
     def action_pasif_et(self):
         """Terminali pasif et"""
-        self.write({
-            'terminal_durum': 'pasif',
-            'pos_durum': 'pasif',
-            'banka_durum': 'reddedildi'
-        })
+        # Pasif durumları bul
+        pasif_durum = self.env['pos.durum'].search([('code', '=', 'pasif')], limit=1)
+        reddedildi_durum = self.env['banka.durum'].search([('code', '=', 'reddedildi')], limit=1)
+        
+        if pasif_durum and reddedildi_durum:
+            self.write({
+                'terminal_durum': pasif_durum.id,
+                'pos_durum': pasif_durum.id,
+                'banka_durum': reddedildi_durum.id
+            })
 
     def action_ariza_bildir(self):
         """Terminal arıza bildirimi"""
-        self.write({
-            'terminal_durum': 'ariza',
-            'pos_durum': 'ariza',
-            'banka_durum': 'hata'
-        })
+        # Arıza durumları bul
+        ariza_durum = self.env['pos.durum'].search([('code', '=', 'ariza')], limit=1)
+        hata_durum = self.env['banka.durum'].search([('code', '=', 'hata')], limit=1)
+        
+        if ariza_durum and hata_durum:
+            self.write({
+                'terminal_durum': ariza_durum.id,
+                'pos_durum': ariza_durum.id,
+                'banka_durum': hata_durum.id
+            })
 
     def action_banka_gonder(self):
         """Banka gönderim işlemi"""
-        self.write({
-            'banka_durum': 'yanit_bekleniyor',
-            'banka_gonderim_tarihi': fields.Datetime.now()
-        })
+        yanit_bekleniyor_durum = self.env['banka.durum'].search([('code', '=', 'yanit_bekleniyor')], limit=1)
+        if yanit_bekleniyor_durum:
+            self.write({
+                'banka_durum': yanit_bekleniyor_durum.id,
+                'banka_gonderim_tarihi': fields.Datetime.now()
+            })
 
     def action_banka_yanit_al(self):
         """Banka yanıtı alındı"""
-        self.write({
-            'banka_durum': 'tamamlandi',
-            'banka_yanit_tarihi': fields.Datetime.now()
-        })
+        tamamlandi_durum = self.env['banka.durum'].search([('code', '=', 'tamamlandi')], limit=1)
+        if tamamlandi_durum:
+            self.write({
+                'banka_durum': tamamlandi_durum.id,
+                'banka_yanit_tarihi': fields.Datetime.now()
+            })
 
     def action_banka_reddet(self):
         """Banka reddetti"""
-        self.write({
-            'banka_durum': 'reddedildi',
-            'banka_yanit_tarihi': fields.Datetime.now()
-        })
+        reddedildi_durum = self.env['banka.durum'].search([('code', '=', 'reddedildi')], limit=1)
+        if reddedildi_durum:
+            self.write({
+                'banka_durum': reddedildi_durum.id,
+                'banka_yanit_tarihi': fields.Datetime.now()
+            })
 
     def action_banka_hata(self):
         """Banka hatası"""
-        self.write({
-            'banka_durum': 'hata',
-            'banka_yanit_tarihi': fields.Datetime.now()
-        })
+        hata_durum = self.env['banka.durum'].search([('code', '=', 'hata')], limit=1)
+        if hata_durum:
+            self.write({
+                'banka_durum': hata_durum.id,
+                'banka_yanit_tarihi': fields.Datetime.now()
+            })
 
     def name_get(self):
         """Terminal adını mali_no ile göster"""
