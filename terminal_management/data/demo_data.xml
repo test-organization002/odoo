@@ -6,7 +6,7 @@
             <field name="mali_no">TERM001</field>
             <field name="org_id">ORG001</field>
             <field name="banka_adi">Garanti BBVA</field>
-            <field name="banka_durum">aktif</field>
+            <field name="banka_durum">tamamlandi</field>
             <field name="pos_durum">aktif</field>
             <field name="terminal_durum">aktif</field>
             <field name="marka">Verifone</field>
@@ -28,7 +28,7 @@
             <field name="mali_no">TERM002</field>
             <field name="org_id">ORG002</field>
             <field name="banka_adi">İş Bankası</field>
-            <field name="banka_durum">beklemede</field>
+            <field name="banka_durum">gonderilmedi</field>
             <field name="pos_durum">beklemede</field>
             <field name="terminal_durum">beklemede</field>
             <field name="marka">Ingenico</field>
@@ -50,7 +50,7 @@
             <field name="mali_no">TERM003</field>
             <field name="org_id">ORG003</field>
             <field name="banka_adi">Yapı Kredi</field>
-            <field name="banka_durum">aktif</field>
+            <field name="banka_durum">yanit_bekleniyor</field>
             <field name="pos_durum">ariza</field>
             <field name="terminal_durum">ariza</field>
             <field name="marka">PAX</field>

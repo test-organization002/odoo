@@ -16,10 +16,12 @@ class Terminal(models.Model):
     
     # Durum alanları
     banka_durum = fields.Selection([
-        ('aktif', 'Aktif'),
-        ('pasif', 'Pasif'),
-        ('beklemede', 'Beklemede')
-    ], string='Banka Durumu', default='beklemede')
+        ('gonderilmedi', 'Gönderilmedi'),
+        ('yanit_bekleniyor', 'Yanıt Bekleniyor'),
+        ('tamamlandi', 'Tamamlandı'),
+        ('reddedildi', 'Reddedildi'),
+        ('hata', 'Hata')
+    ], string='Banka Durumu', default='gonderilmedi')
     
     pos_durum = fields.Selection([
         ('aktif', 'Aktif'),
@@ -104,7 +106,7 @@ class Terminal(models.Model):
         self.write({
             'terminal_durum': 'aktif',
             'pos_durum': 'aktif',
-            'banka_durum': 'aktif'
+            'banka_durum': 'tamamlandi'
         })
 
     def action_pasif_et(self):
@@ -112,14 +114,43 @@ class Terminal(models.Model):
         self.write({
             'terminal_durum': 'pasif',
             'pos_durum': 'pasif',
-            'banka_durum': 'pasif'
+            'banka_durum': 'reddedildi'
         })
 
     def action_ariza_bildir(self):
         """Terminal arıza bildirimi"""
         self.write({
             'terminal_durum': 'ariza',
-            'pos_durum': 'ariza'
+            'pos_durum': 'ariza',
+            'banka_durum': 'hata'
+        })
+
+    def action_banka_gonder(self):
+        """Banka gönderim işlemi"""
+        self.write({
+            'banka_durum': 'yanit_bekleniyor',
+            'banka_gonderim_tarihi': fields.Datetime.now()
+        })
+
+    def action_banka_yanit_al(self):
+        """Banka yanıtı alındı"""
+        self.write({
+            'banka_durum': 'tamamlandi',
+            'banka_yanit_tarihi': fields.Datetime.now()
+        })
+
+    def action_banka_reddet(self):
+        """Banka reddetti"""
+        self.write({
+            'banka_durum': 'reddedildi',
+            'banka_yanit_tarihi': fields.Datetime.now()
+        })
+
+    def action_banka_hata(self):
+        """Banka hatası"""
+        self.write({
+            'banka_durum': 'hata',
+            'banka_yanit_tarihi': fields.Datetime.now()
         })
 
     def name_get(self):
