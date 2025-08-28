@@ -1,97 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Banka Durum List View -->
     <record id="view_banka_durum_list" model="ir.ui.view">
         <field name="name">banka.durum.list</field>
         <field name="model">banka.durum</field>
         <field name="arch">
-            <tree string="Banka Durumları">
-                <field name="sequence" widget="handle"/>
+            <tree>
                 <field name="name"/>
                 <field name="code"/>
-                <field name="description"/>
-                <field name="color" widget="color_picker"/>
-                <field name="terminal_count"/>
-                <field name="active"/>
+                <field name="color"/>
             </tree>
         </field>
     </record>
 
-    <!-- Banka Durum Form View -->
     <record id="view_banka_durum_form" model="ir.ui.view">
         <field name="name">banka.durum.form</field>
         <field name="model">banka.durum</field>
         <field name="arch">
-            <form string="Banka Durum">
+            <form>
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
-                        <button name="action_view_terminals" type="object" class="oe_stat_button" icon="fa-credit-card">
-                            <field name="terminal_count" widget="statinfo" string="Terminaller"/>
-                        </button>
-                    </div>
                     <group>
-                        <group>
-                            <field name="name"/>
-                            <field name="code"/>
-                            <field name="sequence"/>
-                        </group>
-                        <group>
-                            <field name="color" widget="color_picker"/>
-                            <field name="active"/>
-                        </group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="color"/>
                     </group>
-                    <group>
-                        <field name="description" placeholder="Durum açıklaması..."/>
-                    </group>
-                    <notebook>
-                        <page string="Terminaller" name="terminals">
-                            <field name="terminal_ids" readonly="1">
-                                <tree>
-                                    <field name="mali_no"/>
-                                    <field name="banka_adi"/>
-                                    <field name="terminal_durum"/>
-                                    <field name="pos_durum"/>
-                                    <field name="create_date"/>
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <!-- Banka Durum Search View -->
-    <record id="view_banka_durum_search" model="ir.ui.view">
-        <field name="name">banka.durum.search</field>
-        <field name="model">banka.durum</field>
-        <field name="arch">
-            <search string="Banka Durum Ara">
-                <field name="name"/>
-                <field name="code"/>
-                <field name="description"/>
-                <filter string="Aktif" name="active" domain="[('active', '=', True)]"/>
-                <filter string="Pasif" name="inactive" domain="[('active', '=', False)]"/>
-                <group expand="0" string="Grupla">
-                    <filter string="Durum" name="active_group" context="{'group_by': 'active'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
-
-    <!-- Banka Durum Action -->
     <record id="action_banka_durum" model="ir.actions.act_window">
         <field name="name">Banka Durumları</field>
         <field name="res_model">banka.durum</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_active': 1}</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                İlk banka durumunu oluşturun!
-            </p>
-            <p>
-                Banka durumları, terminal kayıtlarında kullanılan durum bilgilerini tanımlar.
-            </p>
-        </field>
     </record>
 </odoo>
