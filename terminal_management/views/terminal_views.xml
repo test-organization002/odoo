@@ -5,7 +5,7 @@
         <field name="name">terminal.management.tree</field>
         <field name="model">terminal.management</field>
         <field name="arch" type="xml">
-            <list string="Terminal Listesi">
+            <tree string="Terminal Listesi">
                 <field name="mali_no"/>
                 <field name="banka_adi"/>
                 <field name="terminal_durum" widget="badge"/>
@@ -154,7 +154,7 @@
     <record id="action_terminal_management" model="ir.actions.act_window">
         <field name="name">Terminal Yönetimi</field>
         <field name="res_model">terminal.management</field>
-        <field name="view_mode">list,form,kanban,graph,pivot</field>
+                        <field name="view_mode">tree,form,kanban,graph,pivot</field>
         <field name="context">{'search_default_aktif': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

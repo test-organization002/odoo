@@ -5,7 +5,7 @@
         <field name="name">pos.durum.list</field>
         <field name="model">pos.durum</field>
         <field name="arch" type="xml">
-            <list string="POS Durumları">
+            <tree string="POS Durumları">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="code"/>
@@ -46,7 +46,7 @@
                     <notebook>
                         <page string="Terminaller" name="terminals">
                             <field name="terminal_ids" readonly="1">
-                                <list>
+                                <tree>
                                     <field name="mali_no"/>
                                     <field name="banka_adi"/>
                                     <field name="terminal_durum"/>
@@ -83,7 +83,7 @@
     <record id="action_pos_durum" model="ir.actions.act_window">
         <field name="name">POS Durumları</field>
         <field name="res_model">pos.durum</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">tree,form</field>
         <field name="context">{'search_default_active': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
