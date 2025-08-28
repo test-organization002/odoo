@@ -26,14 +26,14 @@
         <field name="arch" type="xml">
             <form string="Terminal">
                 <header>
-                    <button name="action_aktif_et" string="Aktif Et" type="object" class="oe_highlight" attrs="{'invisible': [('terminal_durum', '=', 'aktif')]}"/>
-                    <button name="action_pasif_et" string="Pasif Et" type="object" attrs="{'invisible': [('terminal_durum', '=', 'pasif')]}"/>
-                    <button name="action_ariza_bildir" string="Arıza Bildir" type="object" attrs="{'invisible': [('terminal_durum', '=', 'ariza')]}"/>
+                    <button name="action_aktif_et" string="Aktif Et" type="object" class="oe_highlight" invisible="terminal_durum == 'aktif'"/>
+                    <button name="action_pasif_et" string="Pasif Et" type="object" invisible="terminal_durum == 'pasif'"/>
+                    <button name="action_ariza_bildir" string="Arıza Bildir" type="object" invisible="terminal_durum == 'ariza'"/>
                     <separator/>
-                    <button name="action_banka_gonder" string="Banka Gönder" type="object" class="oe_highlight" attrs="{'invisible': [('banka_durum', 'in', ['yanit_bekleniyor', 'tamamlandi', 'reddedildi', 'hata'])]}"/>
-                    <button name="action_banka_yanit_al" string="Yanıt Alındı" type="object" attrs="{'invisible': [('banka_durum', '!=', 'yanit_bekleniyor')]}"/>
-                    <button name="action_banka_reddet" string="Reddedildi" type="object" attrs="{'invisible': [('banka_durum', 'in', ['tamamlandi', 'reddedildi', 'hata'])]}"/>
-                    <button name="action_banka_hata" string="Hata Bildir" type="object" attrs="{'invisible': [('banka_durum', 'in', ['tamamlandi', 'reddedildi', 'hata'])]}"/>
+                    <button name="action_banka_gonder" string="Banka Gönder" type="object" class="oe_highlight" invisible="banka_durum in ('yanit_bekleniyor','tamamlandi','reddedildi','hata')"/>
+                    <button name="action_banka_yanit_al" string="Yanıt Alındı" type="object" invisible="banka_durum != 'yanit_bekleniyor'"/>
+                    <button name="action_banka_reddet" string="Reddedildi" type="object" invisible="banka_durum in ('tamamlandi','reddedildi','hata')"/>
+                    <button name="action_banka_hata" string="Hata Bildir" type="object" invisible="banka_durum in ('tamamlandi','reddedildi','hata')"/>
                     <field name="banka_durum" widget="statusbar" statusbar_visible="gonderilmedi,yanit_bekleniyor,tamamlandi,reddedildi,hata"/>
                 </header>
                 <sheet>
