@@ -7,3 +7,6 @@ access_pos_durum_user,pos.durum.user,model_pos_durum,base.group_user,1,1,1,0
 access_pos_durum_manager,pos.durum.manager,model_pos_durum,base.group_system,1,1,1,1
 access_siparis_durum_user,siparis.durum.user,model_siparis_durum,base.group_user,1,1,1,0
 access_siparis_durum_manager,siparis.durum.manager,model_siparis_durum,base.group_system,1,1,1,1
+access_banka_durum_portal,banka.durum.portal,model_banka_durum,base.group_portal,1,0,0,0
+access_pos_durum_portal,pos.durum.portal,model_pos_durum,base.group_portal,1,0,0,0
+access_siparis_durum_portal,siparis.durum.portal,model_siparis_durum,base.group_portal,1,0,0,0
