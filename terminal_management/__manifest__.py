@@ -22,6 +22,11 @@
         'views/menu_views.xml',
         'data/demo_data.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'terminal_management/static/src/css/terminal.css',
+        ],
+    },
     'demo': [],
     'installable': True,
     'auto_install': False,

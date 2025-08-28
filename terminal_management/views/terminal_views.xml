@@ -24,7 +24,7 @@
         <field name="name">terminal.management.form</field>
         <field name="model">terminal.management</field>
         <field name="arch" type="xml">
-            <form string="Terminal">
+            <form string="Terminal" class="o_form_view_full_width">
                 <header>
                     <button name="action_aktif_et" string="Aktif Et" type="object" class="oe_highlight" invisible="terminal_durum == 'aktif'"/>
                     <button name="action_pasif_et" string="Pasif Et" type="object" invisible="terminal_durum == 'pasif'"/>
@@ -35,6 +35,12 @@
                     <button name="action_banka_reddet" string="Reddedildi" type="object" invisible="banka_durum in ('tamamlandi','reddedildi','hata')"/>
                     <button name="action_banka_hata" string="Hata Bildir" type="object" invisible="banka_durum in ('tamamlandi','reddedildi','hata')"/>
                     <field name="banka_durum" widget="statusbar" statusbar_visible="gonderilmedi,yanit_bekleniyor,tamamlandi,reddedildi,hata"/>
+                    <div class="tm-bank-stage">
+                        <span class="o_form_label">Durum:</span>
+                        <span t-attf-class="tm-chip tm-chip--#{banka_durum}">
+                            <field name="banka_durum"/>
+                        </span>
+                    </div>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -140,7 +146,7 @@
     <record id="action_terminal_management" model="ir.actions.act_window">
         <field name="name">Terminal Yönetimi</field>
         <field name="res_model">terminal.management</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,kanban,graph,pivot</field>
         <field name="context">{'search_default_aktif': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

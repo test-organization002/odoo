@@ -1,0 +1,32 @@
+/* Full-width form layout */
+.o_form_view.o_xxl .o_form_sheet_bg, .o_form_view.o_xl .o_form_sheet_bg, .o_form_view .o_form_sheet_bg {
+  max-width: none !important;
+}
+.o_form_view .o_form_sheet {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Header right aligned statusbar */
+.o_form_view .o_form_statusbar {
+  margin-left: auto;
+}
+
+/* Colored chips for banka_durum in form body */
+.tm-bank-stage {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+.tm-chip {
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+.tm-chip--gonderilmedi { background: #64748b; }
+.tm-chip--yanit_bekleniyor { background: #f59e0b; }
+.tm-chip--tamamlandi { background: #16a34a; }
+.tm-chip--reddedildi { background: #ef4444; }
+.tm-chip--hata { background: #0f172a; }
