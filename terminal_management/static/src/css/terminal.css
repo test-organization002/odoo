@@ -67,28 +67,4 @@
     }
 }
 
-/* Badge widget styling for status fields */
-.o_field_widget.o_field_many2one .o_field_badge {
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
 
-/* Tree view badge styling */
-.o_list_view .o_field_widget.o_field_many2one .o_field_badge {
-    padding: 2px 6px;
-    border-radius: 8px;
-    font-size: 10px;
-    font-weight: 500;
-}
-
-
-
-/* Badge colors will come from database color field */
-.o_field_badge {
-    color: white !important;
-    font-weight: 600;
-}

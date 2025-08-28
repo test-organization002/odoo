@@ -8,10 +8,10 @@
             <tree string="Terminal Listesi">
                 <field name="mali_no"/>
                 <field name="banka_adi"/>
-                <field name="terminal_durum" widget="badge"/>
-                <field name="pos_durum" widget="badge"/>
-                <field name="banka_durum" widget="badge"/>
-                <field name="siparis_durum" widget="badge"/>
+                <field name="terminal_durum"/>
+                <field name="pos_durum"/>
+                <field name="banka_durum"/>
+                <field name="siparis_durum"/>
                 <field name="marka"/>
                 <field name="model"/>
                 <field name="son_haberlesme"/>
@@ -35,18 +35,18 @@
                     <button name="action_banka_yanit_al" string="Yanıt Alındı" type="object"/>
                     <button name="action_banka_reddet" string="Reddedildi" type="object"/>
                     <button name="action_banka_hata" string="Hata Bildir" type="object"/>
-                    <field name="terminal_durum" widget="badge"/>
+                    <field name="terminal_durum"/>
                     <div class="tm-bank-stage">
                         <span class="o_form_label">Banka Durum:</span>
-                        <field name="banka_durum" widget="badge"/>
+                        <field name="banka_durum"/>
                     </div>
                     <div class="tm-pos-stage">
                         <span class="o_form_label">POS Durum:</span>
-                        <field name="pos_durum" widget="badge"/>
+                        <field name="pos_durum"/>
                     </div>
                     <div class="tm-siparis-stage">
                         <span class="o_form_label">Sipariş Durum:</span>
-                        <field name="siparis_durum" widget="badge"/>
+                        <field name="siparis_durum"/>
                     </div>
 
                 </header>
@@ -65,10 +65,10 @@
                             <field name="terminal_type"/>
                         </group>
                         <group string="Durum Bilgileri">
-                            <field name="terminal_durum" widget="badge"/>
-                            <field name="pos_durum" widget="badge"/>
-                            <field name="banka_durum" widget="badge"/>
-                            <field name="siparis_durum" widget="badge"/>
+                            <field name="terminal_durum"/>
+                            <field name="pos_durum"/>
+                            <field name="banka_durum"/>
+                            <field name="siparis_durum"/>
                             <field name="terminal_kanali"/>
                         </group>
                     </group>
