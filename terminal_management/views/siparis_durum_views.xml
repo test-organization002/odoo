@@ -13,7 +13,7 @@
                 <field name="color" widget="color_picker"/>
                 <field name="terminal_count"/>
                 <field name="active"/>
-            </list>
+            </tree>
         </field>
     </record>
 
@@ -52,7 +52,7 @@
                                     <field name="terminal_durum"/>
                                     <field name="pos_durum"/>
                                     <field name="create_date"/>
-                                </list>
+                                </tree>
                             </field>
                         </page>
                     </notebook>

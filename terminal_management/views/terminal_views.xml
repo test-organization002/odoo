@@ -16,7 +16,7 @@
                 <field name="model"/>
                 <field name="son_haberlesme"/>
                 <field name="create_date"/>
-            </list>
+            </tree>
         </field>
     </record>
 
