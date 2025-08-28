@@ -19,9 +19,9 @@
     'web_icon': 'terminal_management/static/description/icon.svg',
     'data': [
         'security/ir.model.access.csv',
-        'views/terminal_views.xml',  # Action definition
-        'views/menu_views.xml',  # Basic menu structure
-        # Temporarily disabled for Odoo 18 compatibility testing
+        # Temporarily disabled all view files for Odoo 18 compatibility
+        # 'views/terminal_views.xml',
+        # 'views/menu_views.xml',
         # 'views/banka_durum_views.xml',
         # 'views/pos_durum_views.xml',
         # 'views/siparis_durum_views.xml',
