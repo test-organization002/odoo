@@ -4,7 +4,7 @@
     <menuitem id="menu_terminal_root"
               name="Terminal Yönetimi"
               sequence="10"
-              web_icon="terminal_management,static/description/icon.png"/>
+              web_icon="terminal_management,static/description/icon.svg"/>
 
     <!-- Terminal Yönetimi Alt Menüsü -->
     <menuitem id="menu_terminal_management"
