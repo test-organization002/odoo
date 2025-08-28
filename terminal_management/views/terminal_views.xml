@@ -35,7 +35,7 @@
                     <button name="action_banka_yanit_al" string="Yanıt Alındı" type="object"/>
                     <button name="action_banka_reddet" string="Reddedildi" type="object"/>
                     <button name="action_banka_hata" string="Hata Bildir" type="object"/>
-                    <field name="terminal_durum" widget="statusbar" statusbar_visible="beklemede,aktif,ariza"/>
+                    <field name="terminal_durum"/>
                     <div class="tm-bank-stage">
                         <span class="o_form_label">Banka Durum:</span>
                         <field name="banka_durum"/>
